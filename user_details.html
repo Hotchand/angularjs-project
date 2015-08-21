@@ -1,0 +1,36 @@
+<div class="row" style="clear:both;">
+    <div class="col-md-12">
+        <div>
+            
+            <p>&nbsp;<br><br><br></p>  
+            <h2 class="page-header">{{user_data.user}}, {{user_data.name}}</h2>
+            <div class="lead">Max Points: {{user_data.maxPointForSemester}}</div>  
+            <div class="lead">Required Points: {{user_data.requiredPoints}}</div>
+            
+            <div class="col-md-1 space5 top5" ng-repeat="periodz in user_data.periods" ng-init="parent=$parent">                    	                  	
+                <span><button type="button" class="btn btn-default" ng-click="$parent.selected = $index;reach(111);">{{periodz.periodName}}</button></span>                        
+            </div>
+            <br>  
+            <p>
+                <div class="col-md-11 top5" ng-repeat="periodz1 in user_data.periods">                    	
+                    <div id="1{{$index}}" ng-show="$parent.selected == $index">
+                        <h3 class="h3">{{periodz1.periodName}}, {{periodz1.periodDescription}}</h3> 
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                  <th>Task</th>
+                                  <th>Score</th>
+                                  <th>Max</th>
+                                </tr>
+                            </thead>                             
+                            <tr ng-repeat="task in periodz1.tasks">                              
+                              <td>{{task.name}}</td>
+                              <td>{{task.score}}</td>
+                              <td>{{task.maxScore}}</td>
+                            </tr>       
+                        </table>
+                    </div>                        
+                </div> 
+            </p> 
+    </div>
+</div>
