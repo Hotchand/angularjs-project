@@ -1,0 +1,33 @@
+<div class="row" style="clear:both;">
+    <div class="col-md-12">
+        <div>
+            
+            <p>&nbsp;<br><br></p> 
+            <div class="col-md-6" style="margin:20px; border:3px #999 solid !important; line-height:20px;" >                    	
+                  <div class="h3"><b>Class ID</b>: {{users._id}}</div>
+                  <div class="h3"><b>Class</b>: {{users.nameShort}}</div>
+                  <div class="h3"><b>Description</b>: {{users.description}}</div>
+                  <div class="h3"><b>Max Points For Semester</b>:  {{users.maxPointForSemester}}</div>
+                  <div class="h3"><b>Required Points</b>: {{users.requiredPoints}}</div>                          
+            </div>                  
+            <table class="table table-hover">
+                    <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>User-Id</th>
+                          <th>Name</th>
+                          <th>Points</th>
+                        </tr>
+                    </thead>                             
+                    <tr ng-repeat="user1 in users.Students">
+                      <th scope="row">{{user1.id}}</th>
+                      <td><a href="#/classes/user/{{users._id}}/{{user1.id}}">{{user1.user}}</a></td>
+                      <td>{{user1.name}}</td>
+                      <td>{{user1.points}}</td>
+                    </tr>       
+                </table>   
+            
+        </div>
+        
+    </div>
+</div>
