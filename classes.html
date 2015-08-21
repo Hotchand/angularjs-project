@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12" >
+      <h2>Class</h2>
+      <p>
+        <div>
+            <ul>
+              <li ng-repeat="x in classes">
+                <a href="#/classes/users/{{x._id}}">{{ x._id + ', ' + x.nameShort }}</a>
+              </li>
+            </ul>
+            
+            <form name="myForm">
+                <label for="mySelect">Classes:</label>
+                
+                <select name="mySelect" id="mySelect"
+                ng-options="x.nameShort for x in classes track by x._id"
+                ng-model="classes.selectedOption" ng-change="GetGrowers();">
+                <option>please select class</option>
+                </select>
+            </form>
+            <br>
+            <tt>x = {{classes.selectedOption}}</tt><br/>
+            </div>        
+           
+      </p>
+    </div>
+</div>
