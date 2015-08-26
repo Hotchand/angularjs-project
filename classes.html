@@ -1,25 +1,56 @@
+
 <div class="row">
     <div class="col-md-12" >
       <h2>Class</h2>
       <p>
         <div>
-            <ul>
-              <li ng-repeat="x in classes">
-                <a href="#/classes/users/{{x._id}}">{{ x._id + ', ' + x.nameShort }}</a>
-              </li>
-            </ul>
+            <br><br>
             
             <form name="myForm">
-                <label for="mySelect">Classes:</label>
+                <label for="mySelect">Select Class:</label>
                 
                 <select name="mySelect" id="mySelect"
                 ng-options="x.nameShort for x in classes track by x._id"
-                ng-model="classes.selectedOption" ng-change="GetGrowers();">
-                <option>please select class</option>
+                ng-model="myclass" ng-change="onChangeSuperCustomer(myclass._id);">
+                <option selected="selected">please select class</option>
                 </select>
             </form>
-            <br>
-            <tt>x = {{classes.selectedOption}}</tt><br/>
+            <br> 
+            
+            <div class="row" style="clear:both;">
+                <div class="col-md-12">
+                    <div>
+                        
+                        <p>&nbsp;<br><br></p> 
+                        <div class="col-md-6" style="margin:20px; border:3px #999 solid !important; line-height:20px;" >                    	
+                              <div class="h3"><b>Class ID</b>: {{ScoreData._id}}</div>
+                              <div class="h3"><b>Class</b>: {{ScoreData.nameShort}}</div>
+                              <div class="h3"><b>Description</b>: {{ScoreData.description}}</div>
+                              <div class="h3"><b>Max Points For Semester</b>:  {{ScoreData.maxPointForSemester}}</div>
+                              <div class="h3"><b>Required Points</b>: {{ScoreData.requiredPoints}}</div>                          
+                        </div>                  
+                        <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>User-Id</th>
+                                      <th>Name</th>
+                                      <th>Points</th>
+                                    </tr>
+                                </thead>                             
+                                <tr ng-repeat="user1 in ScoreData.Students">
+                                  <th scope="row">{{user1.id}}</th>
+                                  <td><a href="#/classes/user/{{ScoreData._id}}/{{user1.id}}">{{user1.user}}</a></td>
+                                  <td>{{user1.name}}</td>
+                                  <td>{{user1.points}}</td>
+                                </tr>       
+                            </table>   
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
             </div>        
            
       </p>
