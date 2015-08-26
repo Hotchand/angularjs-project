@@ -8,8 +8,19 @@ phonecatControllers.controller('ClassListCtrl', ['$scope', '$http',
   function($scope, $http) {
     $http.get('http://test123-plaul1.rhcloud.com/api/sa/classes').success(function(data) {
       $scope.classes = data;
-    });
-  }]);
+	  $scope.myclass = $scope.classes[0];
+	  $scope.ScoreData = $scope.onChangeSuperCustomer($scope.classes[0]._id);
+    });	
+  
+	$scope.onChangeSuperCustomer = function(clsId) {
+    $http.get('http://test123-plaul1.rhcloud.com/api/sa/pointsForAllStudents/' + clsId).success(function(data) {
+        $scope.ScoreData = data;		
+    }); 
+	};
+  }  
+  ]);
+  
+ 
   
 phonecatControllers.controller('PhoneListCtrl', ['$scope', '$routeParams', '$http',
   function($scope, $routeParams, $http) {
@@ -24,3 +35,6 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
       $scope.user_data = data;
     });
   }]);
+  
+  
+ 
